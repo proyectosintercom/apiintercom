@@ -9,7 +9,7 @@ import 'package:flutter/material.dart';
 
 void main() async {
   final dataSource = RestDataSource();
-  final name = await dataSource.getName();
+  final name = await dataSource.getName("0190483843001","5600000038");
   print(name.cedula);
   print(name.idc);
   print(name.nombre);

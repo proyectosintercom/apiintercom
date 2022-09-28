@@ -6,7 +6,15 @@ import 'package:apiintercom/service/service_user.dart';
 import 'UI/card.dart';
 
 import 'package:flutter/material.dart';
-void main() => runApp(const MyApp());
+
+void main() async {
+  final dataSource = RestDataSource();
+  final name = await dataSource.getName("0190483843001","5600000038");
+  print(name.cedula);
+  print(name.idc);
+  print(name.nombre);
+  runApp(const MyApp());
+}
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});

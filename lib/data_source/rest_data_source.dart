@@ -22,15 +22,16 @@ class RestDataSource {
   }) async {
     var
 
-    uri = Uri.https(_baseUrl, endpoint);
+    uri = Uri.http(_baseUrl, endpoint);
     Map data = {
       'id_company': '0190483843001',
       "idc": "5600000038"
     };
     final body = json.encode(data);
     // peticion = await http.post(Uri.parse('http://codgrec.finamsys.com:9969/api/v1.0/get_data_contract'), headers: {"Content-Type": "application/json"}, body: body);
-    final response = await _httpClient.post((uri),body: body);
-    return builder(json.decode(response.body)['messaje'][0]);
+    final response = await _httpClient.post((uri),body: body,headers: {'Content-Type': 'application/json'});
+    final decoded = json.decode(response.body);
+    return builder(decoded['messaje'][0]);
      }
 
   Future<User> getName() async {
